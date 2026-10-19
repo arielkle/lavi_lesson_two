@@ -1,0 +1,511 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>מיומנויות הלומד העצמאי</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="לומדה בת 10 דקות למורי תיכון: מעגל הוויסות העצמי, התנהגויות נצפות, חסמי למידה והוראה מפורשת של מיומנויות. שיעור 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@700;900&display=swap">
+<style>
+/* Layout: same notebook-page system as lesson 1; six skill colors = lesson 1's five components plus a new one for coping with difficulty */
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --sunk:#f6f7fb; --ink:#161f3d; --muted:#57617c; --line:#dce1eb; --line-strong:#c4cbdb;
+  --accent:#2a46c4; --accent-ink:#ffffff; --accent-soft:#e6ebfb;
+  --teacher:#6b7287; --teacher-soft:#eceef3;
+  --warn:#8a5200; --warn-soft:#fff2d9; --good:#1d7a3a;
+  --c1:#cc4a10; --c2:#1a6dbd; --c3:#6744d8; --c4:#24813c; --c5:#bf2459; --c6:#0b7d87;
+  --shadow:0 1px 2px rgba(22,31,61,.05),0 10px 30px rgba(22,31,61,.06);
+  --display:"Frank Ruhl Libre","David Libre",Georgia,serif;
+  --body:"Assistant","Arial Hebrew",Arial,sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1320; --surface:#171c2b; --sunk:#1d2335; --ink:#e7eaf3; --muted:#9ba4ba; --line:#2a3146; --line-strong:#3a4360;
+  --accent:#93a5ff; --accent-ink:#0f1320; --accent-soft:#232c4f;
+  --teacher:#a4abbf; --teacher-soft:#262c3e;
+  --warn:#f3c26b; --warn-soft:#33291a; --good:#6fd68a;
+  --c1:#ff8b52; --c2:#5aaef5; --c3:#a28bff; --c4:#5fcf78; --c5:#f2669a; --c6:#3fc9d3;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1320; --surface:#171c2b; --sunk:#1d2335; --ink:#e7eaf3; --muted:#9ba4ba; --line:#2a3146; --line-strong:#3a4360;
+  --accent:#93a5ff; --accent-ink:#0f1320; --accent-soft:#232c4f;
+  --teacher:#a4abbf; --teacher-soft:#262c3e;
+  --warn:#f3c26b; --warn-soft:#33291a; --good:#6fd68a;
+  --c1:#ff8b52; --c2:#5aaef5; --c3:#a28bff; --c4:#5fcf78; --c5:#f2669a; --c6:#3fc9d3;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.65 var(--body);direction:rtl;-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.45}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+p{margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.wrap{max-width:980px;margin:0 auto;padding-block:22px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.course{font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--muted)}
+.course b{color:var(--accent)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,4.6vw,44px);line-height:1.18;margin:6px 0 6px;letter-spacing:-.01em}
+.sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:14px;color:var(--muted)}
+.facts span{display:inline-flex;align-items:center;gap:6px}
+.facts span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--line-strong)}
+.facts span:first-child::before{display:none}
+
+/* stepper */
+.steps{list-style:none;margin:22px 0 14px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.step{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:0;background:transparent;padding:10px 4px 8px;border-top:4px solid var(--line);text-align:right;color:var(--muted);border-radius:0}
+.step .n{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.step .t{font-size:14px;font-weight:700;line-height:1.25}
+.step.done{border-top-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.step.current{border-top-color:var(--accent);color:var(--ink)}
+.step.current .n{color:var(--accent)}
+.step:hover:not(.current){color:var(--ink)}
+.step-now{display:none;font-size:14px;font-weight:700;color:var(--ink);margin:-6px 0 12px}
+
+/* screen card */
+.screen{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:28px clamp(18px,4vw,40px) 30px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--muted)}
+.kicker b{color:var(--accent)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(25px,3.4vw,33px);line-height:1.25;margin:6px 0 8px}
+.lead{color:var(--muted);max-width:68ch;margin-bottom:22px}
+h3{font-size:19px;margin:0}
+.stack{display:flex;flex-direction:column;gap:18px}
+.aside{font-size:15px;color:var(--muted);background:var(--sunk);border-radius:12px;padding:12px 16px}
+.thesis{border-inline-start:4px solid var(--accent);padding:4px 18px 4px 0;display:flex;flex-direction:column;gap:6px}
+.thesis strong{font-family:var(--display);font-size:clamp(19px,2.5vw,23px);line-height:1.4}
+.qhead{font-weight:800;font-size:17px}
+
+/* skill chips (6 colors) */
+.s0{--c:var(--c1)}.s1{--c:var(--c2)}.s2{--c:var(--c3)}.s3{--c:var(--c4)}.s4{--c:var(--c6)}.s5{--c:var(--c5)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;padding:3px 11px 3px 12px;border-radius:999px;background:color-mix(in srgb,var(--c) 14%,var(--surface));color:color-mix(in srgb,var(--c) 80%,var(--ink));border:1.5px solid color-mix(in srgb,var(--c) 40%,transparent);white-space:nowrap}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+.chip.new{background:transparent;border-style:dashed}
+
+/* screen 1: cycle */
+.cycle{display:grid;grid-template-columns:minmax(260px,370px) 1fr;gap:28px;align-items:center}
+.cycle svg{width:100%;max-width:370px;height:auto;display:block;margin:0 auto}
+.node{cursor:pointer}
+.node:focus{outline:none}
+.node:focus-visible circle.ring{stroke:var(--accent);stroke-width:3}
+.node text{font-family:var(--body);font-weight:800;pointer-events:none}
+.story-who{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);font-weight:600}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:18px;background:var(--surface);border:1.5px solid var(--line-strong);flex:0 0 auto;color:var(--ink)}
+.detail{border:1.5px solid color-mix(in srgb,var(--c) 40%,var(--line));border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.detail .stage-no{font-size:12px;font-weight:800;color:color-mix(in srgb,var(--c) 75%,var(--ink));font-variant-numeric:tabular-nums}
+.detail .dq{font-family:var(--display);font-size:22px;line-height:1.35;font-weight:700}
+.detail .maya{background:var(--sunk);border-radius:10px;padding:10px 14px;font-size:15.5px}
+.detail .maya b{font-size:13px;color:var(--muted);display:block}
+.loop{font-size:14px;font-weight:700;color:color-mix(in srgb,var(--c) 75%,var(--ink))}
+.detail .link1{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--muted);font-weight:600;border-top:1px solid var(--line);padding-top:10px}
+.row-btns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border-radius:10px;padding:9px 16px;font-weight:700;border:1.5px solid var(--line-strong);background:var(--surface);display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.quiet{border-color:transparent;background:transparent;color:var(--muted)}
+.btn.small{font-size:14px;padding:6px 12px}
+.btn:hover:not(:disabled){filter:brightness(1.05)}
+
+/* screen 2: skills explorer */
+.explorer{display:grid;grid-template-columns:minmax(200px,250px) 1fr;gap:16px;align-items:start}
+.skill-list{display:flex;flex-direction:column;gap:6px}
+.skill-btn{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 12px;text-align:right;font-weight:700;font-size:15px;transition:background .15s,border-color .15s}
+.skill-btn::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);flex:0 0 auto}
+.skill-btn:hover{border-color:var(--c)}
+.skill-btn[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 13%,var(--surface));border-color:var(--c)}
+.skill-panel{border:1.5px solid color-mix(in srgb,var(--c) 40%,var(--line));border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.skill-panel h3{font-family:var(--display);font-size:22px}
+.skill-panel dl{margin:0;display:grid;gap:12px}
+.skill-panel dt{font-size:12px;font-weight:800;letter-spacing:.04em;color:color-mix(in srgb,var(--c) 75%,var(--ink))}
+.skill-panel dd{margin:2px 0 0;font-size:15.5px}
+.skill-panel .miss dt{color:var(--warn)}
+.sort{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sort-row{display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.sort-row:last-child{border-bottom:0}
+.sort-top{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center}
+.sort-top span{font-size:16px;font-weight:600}
+.seg{display:inline-flex;border:1.5px solid var(--line-strong);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:6px 14px;font-size:14px;font-weight:700;color:var(--muted);border-inline-start:1px solid var(--line)}
+.seg button:first-child{border-inline-start:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.sort-fb{font-size:14.5px;color:var(--muted)}
+.sort-fb b{color:var(--good)}
+.sort-fb b.diff{color:var(--warn)}
+
+/* screen 3: barriers */
+.case-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.case-no{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums}
+.pips{display:flex;gap:6px}
+.pip{width:24px;height:6px;border-radius:4px;background:var(--line)}
+.pip.answered{background:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.pip.here{background:var(--accent)}
+.quote{position:relative;background:var(--sunk);border:1px solid var(--line);border-radius:18px;padding:22px 24px 20px;display:flex;flex-direction:column;gap:6px}
+.quote::after{content:"";position:absolute;bottom:-11px;right:36px;width:20px;height:20px;background:var(--sunk);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(-45deg)}
+.quote p{font-family:var(--display);font-weight:700;font-size:clamp(22px,3.2vw,28px);line-height:1.35}
+.quote small{font-size:13px;color:var(--muted);font-weight:700}
+.pickers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:6px}
+.picker{display:flex;align-items:center;gap:8px;border:1.5px solid color-mix(in srgb,var(--c) 35%,var(--line));background:var(--surface);border-radius:12px;padding:9px 12px;text-align:right;font-weight:700;font-size:15px;min-width:0;transition:background .15s,border-color .15s}
+.picker::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);flex:0 0 auto}
+.picker:hover{border-color:var(--c)}
+.picker[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 15%,var(--surface));border-color:var(--c);box-shadow:0 0 0 1px var(--c)}
+.verdict{border-radius:14px;border:1px solid var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.verdict .vh{font-weight:800}
+.verdict .vh.ok{color:var(--good)}
+.verdict .vh.diff{color:var(--warn)}
+.verdict .barrier{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700}
+.check-first{background:var(--accent-soft);border-radius:10px;padding:10px 14px;font-size:15px}
+.check-first b{color:var(--accent)}
+
+/* screen 4: teaching sequence */
+.bpick{display:flex;flex-wrap:wrap;gap:8px}
+.bpick button{border:1.5px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:14.5px;font-weight:700;color:var(--muted)}
+.bpick button:hover{border-color:var(--accent);color:var(--ink)}
+.bpick button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.instead{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;background:var(--warn-soft);border-radius:12px;padding:12px 16px}
+.instead b{color:var(--warn);font-size:14px}
+.instead s{text-decoration-thickness:1.5px;font-weight:700}
+.instead .rather{grid-column:1 / -1;font-size:15px}
+.seq{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:s}
+.seq li{display:flex;flex-direction:column;gap:8px;min-width:0}
+.seq .head{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15.5px}
+.seq .num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800;flex:0 0 auto;font-variant-numeric:tabular-nums}
+.seq .support{display:flex;justify-content:flex-start;height:8px;border-radius:5px;background:var(--line);overflow:hidden}
+.seq .support i{display:block;height:100%;background:var(--teacher);opacity:.55;border-radius:5px}
+.seq p{font-size:15px}
+.seq-legend{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted)}
+.seq-legend i{width:28px;height:8px;border-radius:5px;background:var(--teacher);opacity:.55;display:inline-block}
+.closing-line{font-family:var(--display);font-weight:700;font-size:clamp(19px,2.6vw,24px);line-height:1.5;text-align:center;padding:18px 8px;border-block:1px solid var(--line)}
+.next-up{font-size:15px;background:var(--warn-soft);color:var(--ink);border-radius:12px;padding:12px 16px}
+
+/* bottom nav */
+.nav{position:sticky;bottom:0;margin-top:14px;padding-block:12px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:5}
+.nav .grp{display:flex;gap:8px}
+.foot{font-size:12px;color:var(--muted);margin-top:8px}
+
+@media (max-width:760px){
+  .cycle,.explorer{grid-template-columns:1fr;gap:16px}
+  .cycle svg{max-width:320px}
+  .skill-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pickers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .seq{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .step .t{display:none}
+  .step{align-items:center}
+  .step-now{display:block}
+  .screen{padding-top:22px}
+  .sort-top{grid-template-columns:1fr}
+  .seq{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap" dir="rtl" lang="he">
+<header>
+  <p class="course"><b>שיעור 2 מתוך 12</b> · לומדים להוביל למידה עצמאית בעידן הבינה המלאכותית</p>
+  <h1>מיומנויות הלומד העצמאי</h1>
+  <p class="sub">בשיעור הקודם בנינו משימה שמאפשרת לתלמיד לנהל את הלמידה. אבל מה אם הוא עדיין לא יודע איך? ארבעה מסכים על המיומנויות שצריך ללמד, ועל הדרך ללמד אותן.</p>
+  <div class="facts"><span>כ־10 דקות</span><span>4 מסכים</span><span>למורי תיכון</span><span>ההתקדמות נשמרת בדפדפן</span></div>
+</header>
+
+<nav aria-label="מסכי הלומדה">
+  <ol class="steps">
+    <li><button class="step" data-go="0"><span class="n">1 · 2 ד׳</span><span class="t">מעגל הוויסות העצמי</span></button></li>
+    <li><button class="step" data-go="1"><span class="n">2 · 3 ד׳</span><span class="t">מה רואים בכיתה?</span></button></li>
+    <li><button class="step" data-go="2"><span class="n">3 · 3 ד׳</span><span class="t">מה עוצר תלמידים?</span></button></li>
+    <li><button class="step" data-go="3"><span class="n">4 · 2 ד׳</span><span class="t">איך מלמדים מיומנות?</span></button></li>
+  </ol>
+  <p class="step-now" id="stepNow"></p>
+</nav>
+
+<main>
+<!-- ============ SCREEN 1 ============ -->
+<section class="screen" data-screen="0" aria-labelledby="h0" hidden>
+ <div class="stack">
+  <div>
+   <p class="kicker"><b>מסך 1</b> · מעגל הוויסות העצמי</p>
+   <h2 id="h0">מה עושה לומד עצמאי, שלב אחר שלב?</h2>
+   <p class="lead">לומד עצמאי הוא לא רק מי שמבצע משימות בלי עזרה. הוא יודע לנהל את תהליך הלמידה שלו. עקבו אחרי מאיה בששת השלבים: לחצו על שלב במעגל, או על ״לשלב הבא״.</p>
+  </div>
+  <div class="story-who"><span class="avatar" aria-hidden="true">מ</span><span>מאיה, כיתה י״א, מתכוננת למבחן בהסתברות בעוד עשרה ימים</span></div>
+  <div class="cycle">
+   <svg id="cycleSvg" viewBox="0 0 380 380" role="group" aria-label="מעגל הוויסות העצמי בשישה שלבים: מציב יעד, מתכנן, פועל, מנטר, מתמודד, מעריך ומשפר"></svg>
+   <div class="detail" id="detail" aria-live="polite"></div>
+  </div>
+  <p class="aside">ששת השלבים הם פירוק נוח להוראה של תהליך הוויסות העצמי, ולא שש מיומנויות נפרדות מתוך מסמך דמות הבוגר. התהליך מחזורי: בכל שלב התלמיד יכול לשנות את התכנון, לבקש עזרה ולחזור לבדוק את ההתקדמות שלו.</p>
+ </div>
+</section>
+
+<!-- ============ SCREEN 2 ============ -->
+<section class="screen" data-screen="1" aria-labelledby="h1x" hidden>
+ <div class="stack">
+  <div>
+   <p class="kicker"><b>מסך 2</b> · ממיומנויות להתנהגויות</p>
+   <h2 id="h1x">״אין לו מיומנויות למידה״ זה לא אבחון</h2>
+   <p class="lead">כדי לדעת מה ללמד, צריך לתאר מה התלמיד עושה בפועל. לחצו על כל מיומנות כדי לראות איך היא נראית אצל תלמיד תיכון, ומה מרמז שהיא עדיין חסרה.</p>
+  </div>
+  <div class="explorer">
+   <div class="skill-list" id="skillList" role="group" aria-label="שש המיומנויות"></div>
+   <div class="skill-panel" id="skillPanel" aria-live="polite"></div>
+  </div>
+  <div class="stack" style="gap:10px">
+   <p class="qhead" id="sortQ">לפניכם ארבעה משפטים שמורים אמרו על תלמידים. סמנו לגבי כל משפט: האם הוא מתאר מה שהתלמיד עשה (תצפית), או הסבר של המורה למה שקרה (פרשנות)?</p>
+   <div class="sort" id="sort" role="group" aria-labelledby="sortQ"></div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ SCREEN 3 ============ -->
+<section class="screen" data-screen="2" aria-labelledby="h2x" hidden>
+ <div class="stack">
+  <div>
+   <p class="kicker"><b>מסך 3</b> · חסמים</p>
+   <h2 id="h2x">מה מונע מתלמידים ללמוד באופן עצמאי?</h2>
+   <p class="lead">חמישה משפטים ששומעים בכל חדר מורים. לגבי כל משפט, בחרו את המיומנות שהייתם מחזקים, ואז השוו לבחירה שלנו.</p>
+  </div>
+  <div class="case-head"><span class="case-no" id="qNo"></span><div class="pips" id="qPips" aria-hidden="true"></div></div>
+  <figure class="quote" style="margin:0"><small>תלמיד בכיתה אומר:</small><p id="qText"></p></figure>
+  <div>
+   <p class="qhead" id="pickQ" style="margin-top:8px">איזו מיומנות כדאי לחזק אצל תלמיד שאומר את המשפט הזה?</p>
+   <div class="pickers" id="pickers" role="group" aria-labelledby="pickQ"></div>
+  </div>
+  <div class="verdict" id="verdict" hidden aria-live="polite"></div>
+  <div class="row-btns">
+   <button class="btn" id="qPrev">→ המשפט הקודם</button>
+   <button class="btn primary" id="qNext">למשפט הבא ←</button>
+  </div>
+  <p class="aside"><b>חשוב:</b> משפט בודד אינו אבחון, וגם לא מאפיין קבוע של התלמיד. אלה סימנים שעוזרים לבחור התערבות, ויש לבחון אותם בהקשר.</p>
+ </div>
+</section>
+
+<!-- ============ SCREEN 4 ============ -->
+<section class="screen" data-screen="3" aria-labelledby="h3x" hidden>
+ <div class="stack">
+  <div>
+   <p class="kicker"><b>מסך 4</b> · הוראה מפורשת</p>
+   <h2 id="h3x">מזיהוי קושי להקניית מיומנות</h2>
+   <p class="lead">בחרו אחד מחמשת המשפטים מהמסך הקודם, וראו איך המורה מלמד את המיומנות בארבעה שלבים.</p>
+  </div>
+  <div class="bpick" id="bpick" role="group" aria-label="בחירת משפט"></div>
+  <div class="instead" id="instead" aria-live="polite"></div>
+  <div class="stack" style="gap:10px">
+   <ol class="seq" id="seq"></ol>
+   <p class="seq-legend" aria-hidden="true"><i></i>הפס מתחת לכל שלב: כמה תמיכה המורה נותן</p>
+  </div>
+  <p class="closing-line">מיומנויות למידה עצמאית לא מתפתחות רק מעצם מתן האחריות לתלמיד.<br>צריך ללמד אותן, לתרגל אותן ולתת לתלמיד הזדמנות להפעיל אותן בעצמו.</p>
+  <p class="next-up"><b>סיימתם את ההקניה.</b> בפעילות הבאה (20 דקות) תכירו את עידו, תלמיד כיתה י״א. תנתחו את המקרה שלו בעזרת בינה מלאכותית, תבחרו מיומנות אחת לחיזוק ותפתחו עבורו דף תכנון אישי.</p>
+ </div>
+</section>
+</main>
+
+<div class="nav">
+ <div class="grp">
+  <button class="btn" id="prev">→ הקודם</button>
+  <button class="btn primary" id="next">הבא ←</button>
+ </div>
+ <button class="btn quiet" id="reset">התחלה מחדש</button>
+</div>
+<p class="foot">שיעור 2 · יחידה 1: מבינים את הלומד העצמאי · מבוסס על עקרונות דמות הבוגר (הכוונה עצמית, מודעות עצמית) ומחוון כשירות בינה מלאכותית 2.0 · לשימוש חינוכי</p>
+</div>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.lang='he';document.documentElement.dir='rtl';
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var KEY='lomda-shiur2-v1',N=4;
+var STEP_TITLES=['מעגל הוויסות העצמי','מה רואים בכיתה?','מה עוצר תלמידים?','איך מלמדים מיומנות?'];
+
+/* six stages / skills; index i uses class s+i */
+var STAGES=[
+ {name:'מציב יעד',lines:['מציב','יעד'],q:'מה אני רוצה להשיג?',maya:'״בסוף אצליח לפתור בעיות בהסתברות בלי להציץ בדוגמה פתורה.״',l1:'מטרה'},
+ {name:'מתכנן',lines:['מתכנן'],q:'איך ומתי אלמד?',maya:'קובעת שלושה מפגשים של 40 דקות: חזרה על מושגים, תרגול, ומבחן לדוגמה יומיים לפני המבחן.',l1:'תכנון'},
+ {name:'פועל',lines:['פועל'],q:'איזו דרך אנסה?',maya:'פותרת תרגילים ומסבירה לעצמה בקול כל שלב, במקום לקרוא שוב את הסיכום.',l1:'בחירה'},
+ {name:'מנטר',lines:['מנטר'],q:'האם אני מתקדם ומבין?',maya:'אחרי חמישה תרגילים היא בודקת: שלושה נכונים, ובשניים אותה טעות בהסתברות מותנית.',l1:'בקרה'},
+ {name:'מתמודד',lines:['מתמודד'],q:'מה אעשה כשאתקשה?',maya:'חוזרת לדוגמה פתורה ומנסה שוב. כשזה עדיין לא מסתדר, היא שואלת חברה.',loop:'↻ ומעדכנת את התכנון: מוסיפה מפגש קצר רק על הסתברות מותנית.',l1:null},
+ {name:'מעריך ומשפר',lines:['מעריך','ומשפר'],q:'מה למדתי ומה אשנה?',maya:'״ההסבר בקול עזר לי לגלות טעויות. בפעם הבאה אתחיל לתרגל מוקדם יותר.״',l1:'רפלקציה'}
+];
+var SKILLS=[
+ {name:'הצבת יעדים',see:'מגדיר מה הוא רוצה לדעת או להיות מסוגל לבצע.',ex:'לפני עבודה בביולוגיה, תלמיד כותב: ״אצליח להסביר בתרשים איך חיסון גורם לגוף לייצר נוגדנים.״',miss:'כשהוא נשאל מה המטרה, הוא עונה ״לסיים את הדף״ או ״לקבל ציון טוב״.'},
+ {name:'תכנון וניהול זמן',see:'מפרק משימה לשלבים וקובע מועדים לביצוע.',ex:'לעבודה בספרות שמוגשת בעוד שבועיים, תלמידה רושמת ביומן שלושה שלבים: קריאה, טיוטה ותיקון.',miss:'מתחיל לעבוד רק ביום האחרון, או לא יודע מה הצעד הבא.'},
+ {name:'בחירת אסטרטגיות',see:'בוחר איך ללמוד לפי המטרה וסוג המשימה.',ex:'לקראת מבחן באנגלית, תלמיד משנן מילים בכרטיסיות, אבל לקראת כתיבת חיבור הוא מתרגל כתיבה ומבקש משוב.',miss:'לומד כל מקצוע באותה דרך, בדרך כלל בקריאה חוזרת.'},
+ {name:'ניטור ובקרה עצמית',see:'בודק את ההבנה שלו ומזהה פערים בזמן הלמידה.',ex:'בכימיה, תלמידה סוגרת את המחברת, מנסה לפתור תרגיל לבד ומסמנת את מה שלא הצליחה.',miss:'מופתע מהציון: ״הייתי בטוח שהבנתי.״'},
+ {name:'התמדה והתמודדות עם קושי',see:'מנסה דרך חלופית או מבקש עזרה מתאימה.',ex:'בפיזיקה, תלמיד שנתקע בבעיה חוזר לדוגמה דומה ומנסה שוב, ורק אחר כך פונה לחבר.',miss:'מוותר אחרי ניסיון אחד, או פונה למורה מיד בכל קושי.'},
+ {name:'רפלקציה',see:'מסביר מה עזר לו ללמוד ומה ירצה לשפר.',ex:'אחרי מבחן בהיסטוריה, תלמידה כותבת: ״טבלת ההשוואה עזרה לי. בפעם הבאה אתחיל לחזור על החומר מוקדם יותר.״',miss:'מסביר הצלחה או כישלון רק בגורמים חיצוניים: ״המבחן היה קשה.״'}
+];
+var SORT=[
+ {t:'״יואב עצלן, ולא אכפת לו.״',a:1,why:'זו השערה על האופי של יואב. היא לא אומרת מה הוא עשה, ולכן לא מכוונת לפעולה.'},
+ {t:'״יואב התחיל לכתוב את העבודה יום לפני ההגשה.״',a:0,why:'זה מה שקרה בפועל. מכאן אפשר לשאול איזו מיומנות כדאי לחזק: תכנון? התמודדות עם קושי?'},
+ {t:'״לנועה אין מיומנויות למידה.״',a:1,why:'זו קביעה כללית. היא לא אומרת איזו מיומנות חסרה ואיך זה נראה.'},
+ {t:'״נועה סימנה בטקסט כמעט כל שורה, ולא הצליחה לומר מה הרעיון המרכזי.״',a:0,why:'תיאור מדויק שמצביע על מיומנות מסוימת: ניטור ההבנה, ואולי גם בחירת אסטרטגיה.'}
+];
+var SORT_LBL=['תצפית','פרשנות'];
+var BARRIERS=[
+ {q:'אני לא יודע מאיפה להתחיל.',short:'״לא יודע מאיפה להתחיל״',main:1,alt:[0],barrier:'קושי בתכנון ובפירוק משימה לשלבים',check:'האם המטרה ברורה לו? לפעמים הקושי להתחיל נובע ממטרה שהתלמיד לא הבין.',
+  instead:'תתארגן ותתחיל.',
+  steps:['התלמיד יושב מול המשימה ולא מתחיל, או שואל שוב ושוב מה צריך לעשות.','המורה מראה בקול איך מחלקים משימה לשלושה צעדים, וכותב ליד כל צעד את הפעולה הראשונה.','התלמיד מחלק משימה דומה לשלבים בעצמו. המורה עובר על החלוקה ונותן משוב.','במשימה הבאה התלמיד מראה למורה רק את רשימת הצעדים. בהמשך גם זה כבר לא נדרש.']},
+ {q:'יש עוד מלא זמן, אתחיל מחר.',short:'״יש עוד מלא זמן״',main:1,alt:[4],barrier:'קושי בניהול זמן ובהנעה עצמית',check:'האם הוא דוחה רק משימות מסוג מסוים? לפעמים דחייה מסתירה חשש מכישלון.',
+  instead:'אל תשאיר הכול לרגע האחרון.',
+  steps:['התלמיד מתחיל לעבוד רק סמוך למועד ההגשה, גם כשיש לו זמן רב.','המורה מראה איך הופכים מועד הגשה אחד לשלוש נקודות ביניים בלוח השנה.','התלמידים קובעים נקודות ביניים, והמורה בודק איתם בכל נקודה מה הושלם.','התלמידים קובעים נקודות ביניים ומדווחים עליהן בעצמם. המורה בודק רק בנקודה אחת.']},
+ {q:'קראתי הכול, אבל אני לא יודע אם הבנתי.',short:'״לא יודע אם הבנתי״',main:3,alt:[2],barrier:'קושי בניטור ובבדיקת ההבנה',check:'האם הוא מכיר דרכים לבדוק הבנה, כמו להסביר במילים שלו או לפתור שאלה בלי המקור?',
+  instead:'תקרא שוב.',
+  steps:['התלמיד קורא ומסכם, אבל לא מצליח להסביר את החומר בלי להסתכל במקור.','המורה מדגים שאלת בדיקה: סוגר את הספר ומנסה להסביר את הרעיון המרכזי במשפט אחד.','בכל שיעור התלמידים עוצרים פעמיים לבדיקה כזו ומסמנים מה לא הצליחו להסביר.','התלמידים מחליטים בעצמם מתי לעצור ולבדוק, ומדווחים על הפער שמצאו.']},
+ {q:'לא הצלחתי, אז ויתרתי.',short:'״לא הצלחתי, אז ויתרתי״',main:4,alt:[2],barrier:'קושי בהתמודדות עם תסכול ובבחירת דרך חלופית',check:'האם יש לו דרך אחרת לנסות? ייתכן שהוא פשוט לא מכיר אחת.',
+  instead:'אל תוותר.',
+  steps:['אחרי ניסיון אחד שלא הצליח, התלמיד מפסיק לעבוד או מחכה לעזרה.','המורה מציג סולם עזרה: לנסות שוב, לחזור לדוגמה, לשאול חבר, ורק אז לפנות למורה.','כשהתלמיד נתקע, המורה שואל: ״איזה שלב בסולם כבר ניסית?״ ומכוון אותו לשלב הבא.','התלמיד מגיע למורה עם תיאור של מה שכבר ניסה, והמורה מתערב פחות.']},
+ {q:'הבינה כבר סיכמה לי, אז אני מוכן.',short:'״הבינה כבר סיכמה לי״',main:3,alt:[2],barrier:'הסתמכות על תוצר מוכן במקום בדיקת הבנה עצמית',check:'האם הוא מצליח להסביר את הסיכום בלי להסתכל בו? קריאת סיכום יוצרת תחושת הבנה שלא תמיד מבוססת.',
+  instead:'אל תשתמש בבינה מלאכותית.',
+  steps:['התלמיד מציג סיכום של כלי בינה מלאכותית כהוכחה לכך שהוא מוכן.','המורה מבקש מהכלי סיכום, ואז מדגים איך בודקים אותו: סוגר את המסך ומנסה להסביר בעצמו.','התלמידים מבקשים מהכלי לשאול אותם שאלות על החומר במקום לסכם, ובודקים על כמה ידעו לענות.','התלמידים בוחרים בעצמם איך להשתמש בכלי, ומסבירים איך בדקו שהבינו.']}
+];
+var SEQ_STEPS=['מזהים קושי','מדגימים דרך','מתרגלים','מפחיתים תמיכה'];
+var SUPPORT=[100,85,55,22];
+
+function fresh(){return {screen:0,visited:[true,false,false,false],stage:0,skill:0,sort:{},bi:0,bAns:{},seqB:0}}
+var S=fresh();
+try{var d=JSON.parse(localStorage.getItem(KEY)||'null');if(d&&typeof d==='object'){S=Object.assign(fresh(),d);
+ if(!Array.isArray(S.visited)||S.visited.length!==N)S.visited=fresh().visited;
+ S.screen=Math.max(0,Math.min(N-1,+S.screen||0));S.stage=Math.max(0,Math.min(5,+S.stage||0));S.skill=Math.max(0,Math.min(5,+S.skill||0));
+ S.bi=Math.max(0,Math.min(4,+S.bi||0));S.seqB=Math.max(0,Math.min(4,+S.seqB||0));
+ if(!S.sort||typeof S.sort!=='object')S.sort={};if(!S.bAns||typeof S.bAns!=='object')S.bAns={};}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function has(o,k){return Object.prototype.hasOwnProperty.call(o,k)&&o[k]!=null}
+
+/* ---------- navigation ---------- */
+function show(n,scroll){
+ S.screen=Math.max(0,Math.min(N-1,n));S.visited[S.screen]=true;
+ $$('[data-screen]').forEach(function(el){el.hidden=+el.dataset.screen!==S.screen});
+ $$('[data-go]').forEach(function(b){var i=+b.dataset.go;b.classList.toggle('current',i===S.screen);b.classList.toggle('done',i!==S.screen&&S.visited[i]);
+  if(i===S.screen)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.setAttribute('aria-label','מסך '+(i+1)+': '+STEP_TITLES[i])});
+ $('#stepNow').textContent='מסך '+(S.screen+1)+' מתוך '+N+' · '+STEP_TITLES[S.screen];
+ $('#prev').disabled=S.screen===0;$('#next').disabled=S.screen===N-1;
+ $('#next').textContent=S.screen===N-1?'סוף הלומדה':'הבא ←';
+ save();
+ if(scroll!==false){try{window.scrollTo({top:0,behavior:'smooth'})}catch(e){window.scrollTo(0,0)}}
+}
+$$('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.go)})});
+$('#prev').addEventListener('click',function(){show(S.screen-1)});
+$('#next').addEventListener('click',function(){show(S.screen+1)});
+document.addEventListener('keydown',function(e){
+ if(e.altKey||e.ctrlKey||e.metaKey)return;var tag=(document.activeElement||{}).tagName;
+ if(['TEXTAREA','INPUT','BUTTON'].indexOf(tag)>-1)return;
+ if(document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('node'))return;
+ if(e.key==='ArrowLeft'&&S.screen<N-1)show(S.screen+1);
+ if(e.key==='ArrowRight'&&S.screen>0)show(S.screen-1);
+});
+var armed=false,rt;
+$('#reset').addEventListener('click',function(){var b=$('#reset');
+ if(!armed){armed=true;b.textContent='לחצו שוב כדי למחוק הכול';clearTimeout(rt);rt=setTimeout(function(){armed=false;b.textContent='התחלה מחדש'},4000);return}
+ armed=false;b.textContent='התחלה מחדש';S=fresh();renderAll();show(0);
+});
+
+/* ---------- screen 1: cycle ---------- */
+var NS='http://www.w3.org/2000/svg';
+function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+var CX=190,CY=190,R=128;
+function pt(deg,r){var a=deg*Math.PI/180;return [CX+r*Math.cos(a),CY+r*Math.sin(a)]}
+var COLORS=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c6)','var(--c5)'];
+function txt(x,y,s,size,fill,weight){var t=el('text',{x:x,y:y,'text-anchor':'middle',fill:fill,'font-size':size,'font-weight':weight||800,'font-family':'Assistant, Arial, sans-serif'});t.textContent=s;return t}
+function buildCycle(){
+ var svg=$('#cycleSvg');svg.innerHTML='';
+ var defs=el('defs',{}),m=el('marker',{id:'arw',viewBox:'0 0 10 10',refX:'7',refY:'5',markerWidth:'7',markerHeight:'7',orient:'auto-start-reverse'});
+ m.appendChild(el('path',{d:'M0 0 L10 5 L0 10 z',fill:'var(--line-strong)'}));defs.appendChild(m);svg.appendChild(defs);
+ var ang=[-90,-30,30,90,150,210];
+ for(var i=0;i<6;i++){var p1=pt(ang[i]+21,R),p2=pt(ang[i]+60-21,R);
+  svg.appendChild(el('path',{d:'M'+p1[0].toFixed(1)+' '+p1[1].toFixed(1)+' A'+R+' '+R+' 0 0 1 '+p2[0].toFixed(1)+' '+p2[1].toFixed(1),fill:'none',stroke:'var(--line-strong)','stroke-width':'2','marker-end':'url(#arw)'}))}
+ svg.appendChild(el('circle',{cx:CX,cy:CY,r:66,fill:'var(--sunk)',stroke:'var(--line)','stroke-width':'1.5'}));
+ svg.appendChild(txt(CX,CY-8,'הלומד','18','var(--ink)'));
+ svg.appendChild(txt(CX,CY+15,'העצמאי','18','var(--ink)'));
+ svg.appendChild(txt(CX,CY+37,'מווסת את הלמידה','12.5','var(--muted)',700));
+ ang.forEach(function(a,i){var p=pt(a,R);
+  var g=el('g',{class:'node',tabindex:'0',role:'button','data-node':i,'aria-label':'שלב '+(i+1)+': '+STAGES[i].name});
+  g.appendChild(el('circle',{class:'ring',cx:p[0],cy:p[1],r:46,fill:'none',stroke:'transparent','stroke-width':'3'}));
+  g.appendChild(el('circle',{class:'dot',cx:p[0],cy:p[1],r:38,fill:COLORS[i]}));
+  var L=STAGES[i].lines;
+  if(L.length===1)g.appendChild(txt(p[0],p[1]+6,L[0],'15.5','var(--surface)'));
+  else{g.appendChild(txt(p[0],p[1]-3,L[0],'14.5','var(--surface)'));g.appendChild(txt(p[0],p[1]+15,L[1],'14.5','var(--surface)'))}
+  g.addEventListener('click',function(){S.stage=i;save();renderCycle()});
+  g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();S.stage=i;save();renderCycle()}});
+  svg.appendChild(g)});
+}
+function renderCycle(){
+ var i=S.stage,s=STAGES[i];
+ $$('.node').forEach(function(g){var on=+g.dataset.node===i;g.querySelector('.dot').setAttribute('r',on?42:36);g.querySelector('.ring').setAttribute('stroke',on?COLORS[i]:'transparent');g.setAttribute('aria-pressed',String(on))});
+ var d=$('#detail');d.className='detail s'+i;
+ var link=s.l1?'בשיעור 1 קראנו לזה: <span class="chip s'+i+'">'+s.l1+'</span>':'<span class="chip new s'+i+'">חדש</span> שלב שלא הופיע בחמשת המרכיבים של שיעור 1';
+ d.innerHTML='<span class="stage-no">שלב '+(i+1)+' מתוך 6 · '+s.name+'</span><p class="dq">״'+s.q+'״</p>'+
+  '<p class="maya"><b>מה מאיה עושה</b>'+s.maya+'</p>'+(s.loop?'<p class="loop">'+s.loop+'</p>':'')+
+  '<p class="link1">'+link+'</p>'+
+  '<div class="row-btns"><button class="btn small" id="stPrev"'+(i===0?' disabled':'')+'>→ השלב הקודם</button><button class="btn small primary" id="stNext">'+(i===5?'חזרה לתחילת המעגל ↻':'לשלב הבא ←')+'</button></div>';
+ $('#stPrev').addEventListener('click',function(){S.stage=Math.max(0,S.stage-1);save();renderCycle()});
+ $('#stNext').addEventListener('click',function(){S.stage=(S.stage+1)%6;save();renderCycle()});
+}
+
+/* ---------- screen 2 ---------- */
+function buildSkills(){
+ $('#skillList').innerHTML=SKILLS.map(function(s,i){return '<button class="skill-btn s'+i+'" data-skill="'+i+'" aria-pressed="false">'+s.name+'</button>'}).join('');
+ $$('[data-skill]').forEach(function(b){b.addEventListener('click',function(){S.skill=+b.dataset.skill;save();renderSkill()})});
+ $('#sort').innerHTML=SORT.map(function(r,i){return '<div class="sort-row"><div class="sort-top"><span id="st'+i+'">'+r.t+'</span><div class="seg" role="group" aria-labelledby="st'+i+'">'+
+  SORT_LBL.map(function(l,v){return '<button data-sort="'+i+'" data-v="'+v+'" aria-pressed="false">'+l+'</button>'}).join('')+'</div></div><p class="sort-fb" id="sf'+i+'" hidden></p></div>'}).join('');
+ $$('[data-sort]').forEach(function(b){b.addEventListener('click',function(){S.sort[+b.dataset.sort]=+b.dataset.v;save();renderSort()})});
+}
+function renderSkill(){
+ var i=S.skill,s=SKILLS[i];
+ $$('[data-skill]').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.skill===i))});
+ var p=$('#skillPanel');p.className='skill-panel s'+i;
+ p.innerHTML='<h3>'+s.name+'</h3><dl><div><dt>כך זה נראה</dt><dd>'+s.see+'</dd></div><div><dt>דוגמה מהתיכון</dt><dd>'+s.ex+'</dd></div><div class="miss"><dt>סימן שהמיומנות עדיין חסרה</dt><dd>'+s.miss+'</dd></div></dl>';
+}
+function renderSort(){
+ SORT.forEach(function(r,i){var v=has(S.sort,i)?+S.sort[i]:null;
+  $$('[data-sort="'+i+'"]').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.v===v))});
+  var fb=$('#sf'+i);fb.hidden=v===null;
+  if(v!==null){var ok=v===r.a;fb.innerHTML='<b class="'+(ok?'':'diff')+'">'+(ok?'נכון, זו '+SORT_LBL[r.a]+'.':'זו בעצם '+SORT_LBL[r.a]+'.')+'</b> '+r.why}
+ });
+}
+
+/* ---------- screen 3 ---------- */
+function buildBarriers(){
+ $('#qPips').innerHTML=BARRIERS.map(function(){return '<span class="pip"></span>'}).join('');
+ $('#pickers').innerHTML=SKILLS.map(function(s,i){return '<button class="picker s'+i+'" data-pick="'+i+'" aria-pressed="false">'+s.name+'</button>'}).join('');
+ $$('[data-pick]').forEach(function(b){b.addEventListener('click',function(){S.bAns[S.bi]=+b.dataset.pick;save();renderBarrier()})});
+}
+function renderBarrier(){
+ var i=S.bi,b=BARRIERS[i],a=has(S.bAns,i)?+S.bAns[i]:null;
+ $('#qNo').textContent='משפט '+(i+1)+' מתוך '+BARRIERS.length;
+ $$('#qPips .pip').forEach(function(p,j){p.classList.toggle('here',j===i);p.classList.toggle('answered',j!==i&&has(S.bAns,j))});
+ $('#qText').textContent='״'+b.q+'״';
+ $$('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed',String(+x.dataset.pick===a))});
+ var v=$('#verdict');v.hidden=a===null;
+ if(a!==null){var head,cls;
+  if(a===b.main){head='גם אנחנו בחרנו במיומנות הזו.';cls='ok'}
+  else if(b.alt.indexOf(a)>-1){head='גם זו בחירה סבירה. המיומנות שבלטה לנו יותר: '+SKILLS[b.main].name+'.';cls='diff'}
+  else{head='אנחנו היינו בוחרים ב'+SKILLS[b.main].name+'. נסו לראות למה:';cls='diff'}
+  v.innerHTML='<p class="vh '+cls+'">'+head+'</p><p class="barrier">החסם האפשרי: '+b.barrier+' <span class="chip s'+b.main+'">'+SKILLS[b.main].name+'</span></p>'+
+   '<p class="check-first"><b>לפני שמסיקים, כדאי לבדוק:</b> '+b.check+'</p>';
+ }
+ $('#qPrev').disabled=i===0;
+ $('#qNext').disabled=a===null||i===BARRIERS.length-1;
+}
+$('#qPrev').addEventListener('click',function(){S.bi=Math.max(0,S.bi-1);save();renderBarrier()});
+$('#qNext').addEventListener('click',function(){S.bi=Math.min(BARRIERS.length-1,S.bi+1);save();renderBarrier()});
+
+/* ---------- screen 4 ---------- */
+function buildSeq(){
+ $('#bpick').innerHTML=BARRIERS.map(function(b,i){return '<button data-b="'+i+'" aria-pressed="false">'+b.short+'</button>'}).join('');
+ $$('[data-b]').forEach(function(x){x.addEventListener('click',function(){S.seqB=+x.dataset.b;save();renderSeq()})});
+}
+function renderSeq(){
+ var b=BARRIERS[S.seqB];
+ $$('[data-b]').forEach(function(x){x.setAttribute('aria-pressed',String(+x.dataset.b===S.seqB))});
+ $('#instead').innerHTML='<b>במקום לומר</b><s>״'+b.instead+'״</s>'+'<span class="rather">משפט כזה מבקש מהתלמיד להפעיל מיומנות, אבל לא מלמד אותה. כך מלמדים אותה בארבעה שלבים: <span class="chip s'+b.main+'">'+SKILLS[b.main].name+'</span></span>';
+ $('#seq').innerHTML=SEQ_STEPS.map(function(t,k){return '<li><span class="head"><span class="num">'+(k+1)+'</span>'+t+'</span><span class="support" aria-label="תמיכת המורה: '+['מלאה','גבוהה','בינונית','נמוכה'][k]+'"><i style="width:'+SUPPORT[k]+'%"></i></span><p>'+b.steps[k]+'</p></li>'}).join('');
+}
+
+function renderAll(){renderCycle();renderSkill();renderSort();renderBarrier();renderSeq()}
+buildCycle();buildSkills();buildBarriers();buildSeq();renderAll();show(S.screen,false);
+})();
+</script>
+
+</body></html>
